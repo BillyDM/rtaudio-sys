@@ -8,4 +8,4 @@ RUN dpkg --add-architecture armhf && \
     apt-get install libasound2-dev:armhf -y && \
     apt-get install libpulse-dev:armhf -y && \
     apt-get install libjack-jackd2-dev:armhf libjack-jackd2-0:armhf -y && \
-    apt-get install llvm-dev libclang-dev clang
+    apt-get install llvm-dev libclang-dev clang -y \
