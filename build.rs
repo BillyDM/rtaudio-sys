@@ -1,14 +1,18 @@
 extern crate bindgen;
 extern crate cmake;
 
-#[cfg(any(target_os="linux", target_os = "freebsd", target_os = "openbsd", target_os = "netbsd"))]
+#[cfg(any(
+    target_os = "linux",
+    target_os = "freebsd",
+    target_os = "openbsd",
+    target_os = "netbsd"
+))]
 extern crate pkg_config;
 
 use std::env;
 use std::path::PathBuf;
 
 fn main() {
-
     // Build the static library with CMake.
     let mut config = cmake::Config::new("rtaudio");
     config.define("BUILD_SHARED_LIBS", "OFF");
@@ -33,7 +37,7 @@ fn main() {
                     for lib in alsa_library.libs {
                         println!("cargo:rustc-link-lib={}", lib);
                     }
-                } 
+                }
             };
         }
         #[cfg(not(feature = "alsa"))]
@@ -53,7 +57,7 @@ fn main() {
                     for lib in pulse_library.libs {
                         println!("cargo:rustc-link-lib={}", lib);
                     }
-                } 
+                }
             };
         }
         #[cfg(not(feature = "pulse"))]
@@ -73,7 +77,7 @@ fn main() {
                     for lib in jack_library.libs {
                         println!("cargo:rustc-link-lib={}", lib);
                     }
-                } 
+                }
             };
         }
         #[cfg(not(feature = "jack_linux"))]
@@ -93,7 +97,7 @@ fn main() {
                 for oss in oss_library.libs {
                     println!("cargo:rustc-link-lib={}", lib);
                 }
-            } 
+            }
         };
 
         #[cfg(feature = "oss")]
