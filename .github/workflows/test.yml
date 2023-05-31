@@ -24,8 +24,8 @@ jobs:
       run: sudo apt-get install libpulse-dev
     - name: Install libjack
       run: sudo apt-get install libjack-jackd2-dev libjack-jackd2-0
-    - name: Install pkg-config
-      run: sudo apt-get install pkg-config
+    - name: Install c++ dependencies
+      run: sudo apt-get install cmake llvm-dev libclang-dev clang pkg-config
     - name: Install stable
       uses: actions-rs/toolchain@v1
       with:
