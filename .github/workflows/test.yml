@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         submodules: 'true'
-        CC: [g++, clang]
+        CC: g++
     - name: Update apt
       run: sudo apt update
     - name: Install alsa
