@@ -1,6 +1,6 @@
 [package]
 name = "rtaudio-sys"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["Billy Messenger <BillyDM@tutamail.com>"]
 description = "Raw bindings for RtAudio"
@@ -8,7 +8,7 @@ license = "MIT"
 repository = "https://github.com/BillyDM/rtaudio-sys"
 readme = "README.md"
 keywords = ["audio", "sound", "rtaudio"]
-categories = ["multimedia::audio", "api-bindings"]
+categories = ["multimedia::audio", "external-ffi-bindings"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
