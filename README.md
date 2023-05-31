@@ -9,7 +9,7 @@ Rust bindings for [RtAudio](https://github.com/thestk/rtaudio)
 ## Linux
 
 ```
-apt install cmake llvm-dev libclang-dev clang libasound2-dev libpulse-dev
+apt install cmake llvm-dev libclang-dev clang pkg-config libasound2-dev libpulse-dev
 ```
 
 If the `jack_linux` feature is enabled, then also install the jack development headers:

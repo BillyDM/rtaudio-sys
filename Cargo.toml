@@ -22,3 +22,6 @@ ds = []
 [build-dependencies]
 bindgen = "0.65"
 cmake = "0.1"
+
+[target.'cfg(any(target_os="linux", target_os = "freebsd", target_os = "openbsd", target_os = "netbsd"))'.build-dependencies]
+pkg-config = "0.3"
