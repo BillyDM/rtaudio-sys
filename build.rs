@@ -16,8 +16,6 @@ fn main() {
 
     #[cfg(target_os = "linux")]
     {
-        config.cxxflag("-lstdc++ ");
-
         println!("cargo:rustc-link-lib=dylib=stdc++");
 
         #[cfg(feature = "alsa")]
