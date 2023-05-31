@@ -8,7 +8,6 @@ edition = "2021"
 [features]
 default = ["coreaudio", "alsa", "pulse", "oss", "wasapi", "ds"]
 coreaudio = []
-jack_macos = []
 alsa = []
 jack_linux = []
 pulse = []

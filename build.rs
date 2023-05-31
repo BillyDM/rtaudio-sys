@@ -107,14 +107,24 @@ fn main() {
         println!("cargo:rustc-link-lib=dylib=c++");
 
         #[cfg(feature = "coreaudio")]
-        config.define("RTAUDIO_API_CORE", "ON");
+        {
+            config.define("RTAUDIO_API_CORE", "ON");
+
+            println!("cargo:rustc-link-lib=framework=CoreFoundation");
+            println!("cargo:rustc-link-lib=framework=CoreAudio");
+        }
         #[cfg(not(feature = "coreaudio"))]
         config.define("RTAUDIO_API_CORE", "OFF");
 
+        // TODO: Jack support on MacOS
+        // How do you install and link the Jack library files?
+        config.define("RTAUDIO_API_JACK", "OFF");
+        /*
         #[cfg(feature = "jack_macos")]
         config.define("RTAUDIO_API_JACK", "ON");
         #[cfg(not(feature = "jack_macos"))]
         config.define("RTAUDIO_API_JACK", "OFF");
+        */
     }
 
     #[cfg(target_os = "windows")]
