@@ -1,4 +1,3 @@
-extern crate bindgen;
 extern crate cmake;
 
 #[cfg(any(
@@ -8,9 +7,6 @@ extern crate cmake;
     target_os = "netbsd"
 ))]
 extern crate pkg_config;
-
-use std::env;
-use std::path::PathBuf;
 
 fn main() {
     // Build the static library with CMake.
@@ -184,6 +180,7 @@ fn main() {
         println!("cargo:rustc-link-lib=static=rtaudiod");
     }
 
+    /*
     let mut headers_path = dst;
     headers_path.push("include/rtaudio/rtaudio_c.h");
 
@@ -201,4 +198,5 @@ fn main() {
     bindings
         .write_to_file(out_path)
         .expect("Couldn't write bindings!");
+    */
 }

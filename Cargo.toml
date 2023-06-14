@@ -1,6 +1,6 @@
 [package]
 name = "rtaudio-sys"
-version = "0.1.2"
+version = "0.2.0"
 edition = "2021"
 authors = ["Billy Messenger <BillyDM@tutamail.com>"]
 description = "Raw bindings for RtAudio"
@@ -26,7 +26,6 @@ ds = []
 [dependencies]
 
 [build-dependencies]
-bindgen = "0.65"
 cmake = "0.1"
 
 [target.'cfg(any(target_os="linux", target_os = "freebsd", target_os = "openbsd", target_os = "netbsd"))'.build-dependencies]
