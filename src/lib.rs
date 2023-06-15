@@ -184,8 +184,8 @@ extern "C" {
     #[doc = "! Returns the audio device ID corresponding to a given index\n! value (valid index values are between 0 and rtaudio_device_count()-1).\n! Note that a return value of 0 is invalid, which will occur if the\n! index value is out of bounds or no devices are found. See \\ref\n! RtAudio::getDeviceIds()."]
     pub fn rtaudio_get_device_id(audio: rtaudio_t, i: c_int) -> c_uint;
 
-    #[doc = "! Return a struct rtaudio_device_info for a specified device number.\n! See \\ref RtAudio::getDeviceInfo()."]
-    pub fn rtaudio_get_device_info(audio: rtaudio_t, i: c_int) -> rtaudio_device_info_t;
+    #[doc = "! Return a struct rtaudio_device_info for a specified device ID.\n! See \\ref RtAudio::getDeviceInfo()."]
+    pub fn rtaudio_get_device_info(audio: rtaudio_t, id: c_uint) -> rtaudio_device_info_t;
 
     #[doc = "! Returns the device id of the default output device.  See \\ref\n! RtAudio::getDefaultOutputDevice()."]
     pub fn rtaudio_get_default_output_device(audio: rtaudio_t) -> c_uint;
