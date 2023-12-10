@@ -173,10 +173,6 @@ fn main() {
             );
         });
 
-    if !libdir_path.exists() {
-        panic!("Could not find rtaudio static lib path. Check `target/debug/build/rtaudio-sys-*/out/` for a lib or lib64 folder.");
-    }
-
     // Tell cargo to link to the compiled library.
     println!(
         "cargo:rustc-link-search=native={}",
