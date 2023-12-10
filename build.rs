@@ -163,6 +163,13 @@ fn main() {
     let dst = config.build();
 
     let mut libdir_path = dst.clone();
+
+    // TODO: Check if this is true for all linux 64 bit
+    #[cfg(target_os = "linux")]
+    #[cfg(target_pointer_width = "64")]
+    libdir_path.push("lib64");
+
+    #[cfg(not(target_os = "linux"))]
     libdir_path.push("lib");
 
     // Tell cargo to link to the compiled library.
