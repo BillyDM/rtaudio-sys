@@ -162,8 +162,16 @@ fn main() {
 
     let dst = config.build();
 
-    let mut libdir_path = dst.clone();
-    libdir_path.push("lib");
+    // Sometimes the path can be called lib64
+    let libdir_path = ["lib", "lib64"]
+        .iter()
+        .map(|dir| dst.clone().join(dir))
+        .find(|path| path.exists())
+        .unwrap_or_else(|| {
+            panic!(
+                "Could not find rtaudio static lib path. Check `target/debug/build/rtaudio-sys-*/out` for a lib or lib64 folder."
+            );
+        });
 
     // Tell cargo to link to the compiled library.
     println!(
