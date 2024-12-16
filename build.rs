@@ -185,7 +185,10 @@ fn main() {
     }
     #[cfg(target_os = "windows")]
     {
+        #[cfg(debug_assertions)]
         println!("cargo:rustc-link-lib=static=rtaudiod");
+        #[cfg(not(debug_assertions))]
+        println!("cargo:rustc-link-lib=static=rtaudio");
     }
 
     /*
